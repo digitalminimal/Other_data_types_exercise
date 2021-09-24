@@ -1,0 +1,19 @@
+
+import requests as re
+import os
+
+client_id = os.environ["FOURSQUARE_CLIENT_ID"]
+client_secret = os.environ["FOURSQUARE_CLIENT_SECRET"]
+
+
+location = "Toronto,Canada"
+v = "20200731"
+#Prepare the url for the API:
+url = "https://api.foursquare.com/v2/venues/search?near="+location+"&client_id="+client_id+"&client_secret="+client_secret+"&v="+v
+
+
+#Send the request to Foursquare:
+res = re.get(url)
+print(res)
+
+print(res.json())
